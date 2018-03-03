@@ -1,0 +1,8 @@
+<phpunit bootstrap="vendor/autoload.php">
+	<testsuites>
+		<testsuite name="slug">
+			<file>tests/SlugTest.php</file>
+			<file>tests/SlugAvailableCheckTest.php</file>
+		</testsuite>
+	</testsuites>
+</phpunit>
