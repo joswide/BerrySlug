@@ -8,10 +8,6 @@ sudo: false
 matrix:
   fast_finish: true
   include:
-    - php: 7.0
-      env: polyfill='true'
-    - php: 7.0
-      env: polyfill='false'
     - php: 7.1
       env: polyfill='true'
     - php: 7.1
