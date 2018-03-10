@@ -8,6 +8,10 @@ class Slug{
 	
 	protected $append_prefix = '-';
 	
+	// only allow following characters:
+	// a-z 0-9 _ - .
+	protected $regex_allowed_chars = "/[^a-z0-9\_\-.]/";
+	
 	public function __construct(){
 		
 	}
@@ -21,6 +25,10 @@ class Slug{
 	*/
 	public function getAppendPrefix() {
 		return $this->append_prefix;
+	}
+	
+	public function getRegexAllowedChars() {
+		return $this->regex_allowed_chars;
 	}
 	
 	
@@ -71,9 +79,8 @@ class Slug{
 		
 		$slug = str_replace($b,$c,$slug);
 		    
-		// only allow following characters:
-		// a-z 0-9 _ - .
-		$slug = preg_replace("/[^a-z0-9\_\-.]/", "", $slug);
+		
+		$slug = preg_replace($this->getRegexAllowedChars(), "", $slug);
 		
 		if ($indice > 0){
 			$slug = $slug . $this->getAppendPrefix() . $indice;
